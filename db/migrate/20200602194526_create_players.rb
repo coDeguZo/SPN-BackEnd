@@ -9,7 +9,7 @@ class CreatePlayers < ActiveRecord::Migration[6.0]
       t.string :weight
       t.string :birthdate
       t.string :college
-      t.string :player_image, default: "https://alumni.crg.eu/sites/default/files/default_images/default-picture_0_0.png"
+      t.string :player_image, :default => "https://alumni.crg.eu/sites/default/files/default_images/default-picture_0_0.png"
       t.string :team_draft_id
       t.string :league
       t.string :team_id

@@ -65,14 +65,19 @@ images = JSON.parse(otherAPI)
 new_team["standard"].each do |player|
     image = ""
     images["players"].filter do |x|
-        image = x["imgURL"] if x["name"] == "#{player['firstName']} #{player['lastName']}"
+        image = x["imgURL"] if x["name"] === "#{player['firstName']} #{player['lastName']}"
     end
+
+if image === ""
+    image = "https://alumni.crg.eu/sites/default/files/default_images/default-picture_0_0.png"
+end
 
 teams = Team.all
 team_id = "".to_i
 teams.filter do |team|
     team_id = team.id if team["team_reference"] === player["teamId"]
 end
+
 Player.create(
     full_name: "#{player['firstName']} #{player['lastName']}",
     real_team_id: player["teamId"],
@@ -89,7 +94,7 @@ Player.create(
     )
 end
 
-user1 = User.create(name: "user1", email: "demo1@gmail.com", password: "password1")
-user2 = User.create(name: "user2", email: "demo2@gmail.com", password: "password2")
-user3 = User.create(name: "user3", email: "demo3@gmail.com", password: "password3")
-user4 = User.create(name: "user4", email: "demo4@gmail.com", password: "password4")
+user1 = User.create(name: "Uzoma Ariguzo", email: "demo1@gmail.com", image: "https://avatars3.githubusercontent.com/u/33858127?s=460&u=86b0afa70fbb45a4d176637abe08d13ef20c610a&v=4", password: "password1")
+user2 = User.create(name: "user2", email: "demo2@gmail.com", image: "https://avatars3.githubusercontent.com/u/33858127?s=460&u=86b0afa70fbb45a4d176637abe08d13ef20c610a&v=4", password: "password2")
+user3 = User.create(name: "user3", email: "demo3@gmail.com", image: "https://avatars3.githubusercontent.com/u/33858127?s=460&u=86b0afa70fbb45a4d176637abe08d13ef20c610a&v=4", password: "password3")
+user4 = User.create(name: "user4", email: "demo4@gmail.com", image: "https://avatars3.githubusercontent.com/u/33858127?s=460&u=86b0afa70fbb45a4d176637abe08d13ef20c610a&v=4", password: "password4")

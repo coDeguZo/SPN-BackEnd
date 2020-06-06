@@ -13,6 +13,7 @@ Team.destroy_all
 League.destroy_all
 Player.destroy_all
 User.destroy_all
+UserPlayer.destroy_all
 
 league1 = League.create(name: "MLS", logo_img: "https://soccerstadiumdigest.com/wp-content/uploads/2020/01/25th-Season-logo-969x1024.png")
 league2 = League.create(name: "NFL", logo_img: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png")
@@ -98,3 +99,18 @@ user1 = User.create(name: "Uzoma Ariguzo", email: "demo1@gmail.com", image: "htt
 user2 = User.create(name: "user2", email: "demo2@gmail.com", image: "https://avatars3.githubusercontent.com/u/33858127?s=460&u=86b0afa70fbb45a4d176637abe08d13ef20c610a&v=4", password: "password2")
 user3 = User.create(name: "user3", email: "demo3@gmail.com", image: "https://avatars3.githubusercontent.com/u/33858127?s=460&u=86b0afa70fbb45a4d176637abe08d13ef20c610a&v=4", password: "password3")
 user4 = User.create(name: "user4", email: "demo4@gmail.com", image: "https://avatars3.githubusercontent.com/u/33858127?s=460&u=86b0afa70fbb45a4d176637abe08d13ef20c610a&v=4", password: "password4")
+
+player1 = Player.all.first
+player2 = Player.all.last
+player3 = Player.all[2]
+player4 = Player.all[3]
+player5 = Player.all[4]
+player6 = Player.all[5]
+
+
+user_player = UserPlayer.create(user_id: user1.id, player_id: player1.id)
+user_player2 = UserPlayer.create(user_id: user1.id, player_id: player2.id)
+user_player3 = UserPlayer.create(user_id: user1.id, player_id: player3.id)
+user_player4 = UserPlayer.create(user_id: user1.id, player_id: player4.id)
+user_player5 = UserPlayer.create(user_id: user1.id, player_id: player5.id)
+user_player6 = UserPlayer.create(user_id: user1.id, player_id: player6.id)

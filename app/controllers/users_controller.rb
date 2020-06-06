@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: User.find_by(id: params[:id])
+        render json: User.find_by(id: params[:id]).as_json(include: [:user_players])
     end
 
     def create

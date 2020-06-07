@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_195008) do
     t.string "alias"
     t.string "venue"
     t.string "url_reference"
+    t.string "sport_title"
     t.string "team_reference"
     t.integer "league_id"
     t.datetime "created_at", precision: 6, null: false

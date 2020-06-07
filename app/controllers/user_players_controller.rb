@@ -8,17 +8,20 @@ class UserPlayersController < ApplicationController
     end
 
     def create
-        player = Player.find_by(id: params["id"])
-        user = User.find_by(id: params["id"])
-        if !user.players.include?(player)
-            UserPlayer.create(user_id: user, player_id: player)
-        end
+        user_player = UserPlayer.create(user_player_params)
+        render json: user_player
+        
     end
 
     def destroy
-        user_player = UserPlayer.find(params{:id})
+        user_player = UserPlayer.find(params[:id])
         user_player.destroy
         render json: user_player
     end
     
+    private
+
+    def user_player_params
+        params.require(:user_player).permit(:user_id, :player_id)
+    end
 end

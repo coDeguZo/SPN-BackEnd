@@ -6,6 +6,7 @@ class CreateTeams < ActiveRecord::Migration[6.0]
       t.string :alias
       t.string :venue
       t.string :url_reference
+      t.string :sport_title
       t.string :team_reference
       t.integer :league_id
 

@@ -31,6 +31,7 @@ teams_array.each do |conference|
                 alias: team["alias"],
                 venue: team["venue"]["name"],
                 url_reference: team["id"],
+                sport_title: "NBA",
                 team_reference: team["reference"],
                 league_id: league3.id
             )
@@ -49,6 +50,7 @@ teams_array.each do |conference|
                 alias: team["alias"],
                 venue: team["venue"]["name"],
                 url_reference: team["id"],
+                sport_title: "NFL",
                 team_reference: team["reference"],
                 league_id: league2.id
             )

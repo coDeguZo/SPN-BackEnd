@@ -9,7 +9,7 @@ class UserPlayersController < ApplicationController
 
     def create
         user_player = UserPlayer.create(user_player_params)
-        render json: user_player
+        render json: user_player.as_json(include: [:user, :player => {include: [:team]}])
         
     end
 

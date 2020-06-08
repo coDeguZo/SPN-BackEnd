@@ -19,6 +19,12 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        user = User.find(params[:id])
+        user.update(name: params[:name], email: params[:email], image: params[:image])
+        render json: user
+    end
+
     def login 
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])

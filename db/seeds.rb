@@ -14,6 +14,7 @@ League.destroy_all
 Player.destroy_all
 User.destroy_all
 UserPlayer.destroy_all
+UserTeam.destroy_all
 
 league1 = League.create(name: "MLS", logo_img: "https://soccerstadiumdigest.com/wp-content/uploads/2020/01/25th-Season-logo-969x1024.png")
 league2 = League.create(name: "NFL", logo_img: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png")
@@ -25,12 +26,50 @@ teams_array = JSON.parse(teams)["conferences"]
 teams_array.each do |conference|
     conference["divisions"].each do |division|
         division["teams"].each do |team|
-             Team.create(
+            url = ""
+            teamsAbbreviation = {
+                atl: 'hawks',
+                bkn: 'nets',
+                bos: 'celtics',
+                cha: 'hornets',
+                chi: 'bulls',
+                cle: 'cavaliers',
+                dal: 'mavericks',
+                den: 'nuggets',
+                det: 'pistons',
+                gsw: 'warriors',
+                hou: 'rockets',
+                ind: 'pacers',
+                lac: 'clippers',
+                lal: 'lakers',
+                mem: 'grizzlies',
+                mia: 'heat',
+                mil: 'bucks',
+                min: 'timberwolves',
+                nop: 'pelicans',
+                nyk: 'knicks',
+                okc: 'thunder',
+                orl: 'magic',
+                phi: '76ers',
+                phx: 'suns',
+                por: 'blazers',
+                sac: 'kings',
+                sas: 'spurs',
+                tor: 'raptors',
+                uta: 'jazz',
+                was: 'wizards'
+              }
+            url = ""
+            teamsAbbreviation.each do |abbreviation|
+                url = "http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/#{abbreviation[0]}.png" if team["name"].downcase === abbreviation[1]
+            end
+            Team.create(
                 name: team["name"],
                 market: team["market"],
                 alias: team["alias"],
                 venue: team["venue"]["name"],
                 url_reference: team["id"],
+                image: url,
                 sport_title: "NBA",
                 team_reference: team["reference"],
                 league_id: league3.id
@@ -39,24 +78,24 @@ teams_array.each do |conference|
     end
 end
 
-teams = RestClient.get("http://api.sportradar.us/nfl/official/trial/v5/en/league/hierarchy.json?api_key=56fc3y9jvaf9sr5ahdvzjcf4")
-teams_array = JSON.parse(teams)["conferences"]
-teams_array.each do |conference|
-    conference["divisions"].each do |division|
-        division["teams"].each do |team|
-             Team.create(
-                name: team["name"],
-                market: team["market"],
-                alias: team["alias"],
-                venue: team["venue"]["name"],
-                url_reference: team["id"],
-                sport_title: "NFL",
-                team_reference: team["reference"],
-                league_id: league2.id
-            )
-        end
-    end
-end
+# teams = RestClient.get("http://api.sportradar.us/nfl/official/trial/v5/en/league/hierarchy.json?api_key=56fc3y9jvaf9sr5ahdvzjcf4")
+# teams_array = JSON.parse(teams)["conferences"]
+# teams_array.each do |conference|
+#     conference["divisions"].each do |division|
+#         division["teams"].each do |team|
+#              Team.create(
+#                 name: team["name"],
+#                 market: team["market"],
+#                 alias: team["alias"],
+#                 venue: team["venue"]["name"],
+#                 url_reference: team["id"],
+#                 sport_title: "NFL",
+#                 team_reference: team["reference"],
+#                 league_id: league2.id
+#             )
+#         end
+#     end
+# end
 
 # NBA players API seed data
 raw_players = RestClient.get("http://data.nba.net/10s/prod/v1/2019/players.json")
@@ -116,3 +155,16 @@ user_player3 = UserPlayer.create(user_id: user1.id, player_id: player3.id)
 user_player4 = UserPlayer.create(user_id: user1.id, player_id: player4.id)
 user_player5 = UserPlayer.create(user_id: user1.id, player_id: player5.id)
 user_player6 = UserPlayer.create(user_id: user1.id, player_id: player6.id)
+
+team1 = Team.all.first
+team2 = Team.all.last
+team3 = Team.all[2]
+team4 = Team.all[3]
+team5 = Team.all[4]
+team6 = Team.all[5]
+
+user_team1 = UserTeam.create(user_id: user1.id, team_id: team1.id)
+user_team2= UserTeam.create(user_id: user1.id, team_id: team2.id)
+user_team3 = UserTeam.create(user_id: user1.id, team_id: team3.id)
+user_team4 = UserTeam.create(user_id: user1.id, team_id: team4.id)
+user_team5 = UserTeam.create(user_id: user1.id, team_id: team5.id)

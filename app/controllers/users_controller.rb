@@ -25,6 +25,12 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def destroy
+        user = User.find(params[:id])
+        user.destroy
+        render json: user
+    end
+
     def login 
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])

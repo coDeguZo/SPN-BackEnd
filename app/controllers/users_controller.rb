@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
     def index
-        render json: User.all.as_json(include: [:user_players])
+        render json: User.all.as_json(include: [:user_players, :user_teams, :user_bookmarks])
     end
 
     def show
-        render json: User.find_by(id: params[:id]).as_json(include: [:user_players])
+        render json: User.find_by(id: params[:id]).as_json(include: [:user_players, :user_teams, :user_bookmarks])
     end
 
     def create

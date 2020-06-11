@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_bookmarks
   resources :user_teams
   resources :user_players
   resources :users

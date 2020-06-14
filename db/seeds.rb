@@ -63,6 +63,7 @@ teams_array.each do |conference|
             teamsAbbreviation.each do |abbreviation|
                 url = "http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/#{abbreviation[0]}.png" if team["name"].downcase === abbreviation[1]
             end
+
             Team.create(
                 name: team["name"],
                 market: team["market"],

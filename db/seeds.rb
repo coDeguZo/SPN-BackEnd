@@ -7,7 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'rest-client'
-require "open-uri"
+require 'nokogiri'
+require 'open-uri'
+require 'watir'
 
 Team.destroy_all
 League.destroy_all

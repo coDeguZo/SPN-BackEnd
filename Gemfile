@@ -17,6 +17,11 @@ gem 'puma', '~> 4.1'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt', '~> 2.1'
 gem 'nokogiri'
+gem 'watir'
+gem 'watir-nokogiri'
+gem 'headless'
+gem 'webdrivers'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :players
   resources :teams
   resources :leagues
+
+  post '/teams/:id', to: "teams#team_profile"
   post "/login", to: "users#login"
   # This route is to activate the token authentication 
   get "/login", to: "users#token_authenticate"

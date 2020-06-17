@@ -54,7 +54,7 @@ teams_array.each do |conference|
                 orl: 'magic',
                 phi: '76ers',
                 phx: 'suns',
-                por: 'blazers',
+                por: 'trail blazers',
                 sac: 'kings',
                 sas: 'spurs',
                 tor: 'raptors',

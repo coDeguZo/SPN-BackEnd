@@ -8,8 +8,6 @@ class TeamsController < ApplicationController
     end
 
     def team_profile
-        # require 'nokogiri'
-        # require 'watir'
 
         team = Team.find_by(id: params[:id])
         

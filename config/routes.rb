@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :players
   resources :teams
   resources :leagues
+  resources :home_news
 
   post '/teams/:id', to: "teams#team_profile"
   post "/login", to: "users#login"

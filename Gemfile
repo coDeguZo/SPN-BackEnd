@@ -52,3 +52,5 @@ gem 'dotenv-rails'
 
 # Used for production with Heroku.app
 gem 'rails_12factor', group: :production
+
+gem 'figaro'

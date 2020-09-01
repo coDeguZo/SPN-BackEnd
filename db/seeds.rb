@@ -171,3 +171,20 @@ user_team2= UserTeam.create(user_id: user1.id, team_id: team2.id)
 user_team3 = UserTeam.create(user_id: user1.id, team_id: team3.id)
 user_team4 = UserTeam.create(user_id: user1.id, team_id: team4.id)
 user_team5 = UserTeam.create(user_id: user1.id, team_id: team5.id)
+
+news = RestClient.get("https://newsapi.org/v2/everything?domains=espn.com&pageSize=50&apiKey=f44ccf725ca9471596da059a5defc2fc")
+new_parse = JSON.parse(news)["articles"]
+
+new_parse.each do |articles|
+    HomeNews.create(
+        author: articles["author"],
+        content: articles["content"],
+        description: articles["description"],
+        published_at: articles["publishedAt"],
+        title: articles["title"],
+        url: articles["url"],
+        url_to_image: articles["urlToImage"]
+    )
+end
+
+news = ["Array"]

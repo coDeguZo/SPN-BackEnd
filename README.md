@@ -35,3 +35,8 @@ This is a sports news aggregator designed to get all of your daily news in the s
 1. There are tests for backend models written in Rpec
 
 2. Make sure models are running successfully by running rspec
+
+## Heroku
+
+- Heroku Link: https://spn-backend.herokuapp.com/
+EX: https://spn-backend.herokuapp.com/users

@@ -24,6 +24,8 @@ This is a sports news aggregator designed to get all of your daily news in the s
 
 7. Rails should be running the api on http://localhost:3000. You can check the users route going to http://localhost:3000/users in your browser.
 
+![Image of Users](public/ScreenShoot.png)
+
 8. Clone down the BrackIt Frontend Repo and follow the frontend Readme instructions!
 
 9. If you have previously downloaded and ran this repo, you may encounter a localstorage error if a locally stored token is invalid in your new database. Run localstorage.clear() in your console.

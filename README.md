@@ -39,4 +39,4 @@ This is a sports news aggregator designed to get all of your daily news in the s
 ## Heroku
 
 - Heroku Link: https://spn-backend.herokuapp.com/
-EX: https://spn-backend.herokuapp.com/users
+- EX: https://spn-backend.herokuapp.com/users

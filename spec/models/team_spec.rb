@@ -21,7 +21,6 @@ RSpec.describe Team, :type => :model do
       team_reference: "Uzoma Rocks",
       league_id: 4)
       expect(team.name).to eq("Uzomas Team")
-    
     end
 
 end
